@@ -30,6 +30,7 @@ func Init(e *gin.Engine) {
 	g.Any("/ping", func(c *gin.Context) {
 		c.String(200, "pong")
 	})
+	g.GET("/cdnip", func(c *gin.Context) { c.String(200, c.RemoteIP()) })
 	g.GET("/favicon.ico", handles.Favicon)
 	g.GET("/robots.txt", handles.Robots)
 	g.GET("/manifest.json", static.ManifestJSON)
